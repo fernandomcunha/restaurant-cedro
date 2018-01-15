@@ -15,6 +15,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'inherited_resources'
 gem 'ransack'
+gem 'bootstrap'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'pry-rails'
@@ -22,6 +24,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 3.7'
+  gem 'rails-controller-testing'
   gem 'factory_bot_rails'
 end
 

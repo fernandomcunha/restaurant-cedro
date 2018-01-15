@@ -1,0 +1,10 @@
+pt-BR:
+  activerecord:
+    models:
+      meadow:
+        one: 'Prato'
+        other: 'Pratos'
+    attributes:
+      name: 'Nome'
+      price: 'Preço'
+      restaurant: 'Restaurante'
