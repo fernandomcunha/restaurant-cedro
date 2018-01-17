@@ -5,4 +5,11 @@ pt-BR:
         one: 'Restaurante'
         other: 'Restaurantes'
     attributes:
-      name: 'Nome'
+      restaurant:
+        name: 'Nome'
+  ransack:
+    models:
+      restaurant: 'Restaurante'
+    attributes:
+      restaurant:
+        name_cont: 'Nome:'

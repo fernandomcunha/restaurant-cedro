@@ -1,0 +1,17 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th class="col-md-2">Ações</th>
+      <th>Nome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% collection.each do |resource| %>
+      <tr>
+        <th><%= link_to(content_tag(:span, '', class: 'glyphicon glyphicon-minus'), resource_path(resource), method: :delete) %>
+        <%= link_to(content_tag(:span, '', class: 'glyphicon glyphicon-pencil'), edit_resource_path(resource)) %></th>
+        <td class="text-left"><%= resource.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

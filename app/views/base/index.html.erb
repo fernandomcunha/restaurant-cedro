@@ -1,0 +1,11 @@
+<div class="row">
+  <%= search_form_for @search do |f| %>
+    <%= render 'form_filter', f: f %>
+  <% end %>
+</div>
+
+</br>
+<div class="row">
+  <h2><%= resource_class.model_name.human.pluralize %></h2>
+  <%= render 'list' %>
+</div>
