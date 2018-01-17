@@ -16,6 +16,31 @@ RSpec.feature Restaurant, type: :feature do
     expect(page).to have_link('Cadastrar novo Restaurante')
   end
 
+  scenario "Visit the index page and show only filtered" do
+    create_list(:restaurant, 10)
+    create_list(:restaurant, 10, name: 'Baz')
+
+    visit root_path
+
+    click_link 'Restaurantes'
+
+    within('table') do
+      expect(page).to have_xpath(".//tr", count: 21)
+    end
+
+    expect(page).to have_button('Pesquisar')
+    expect(page).to have_link('Cadastrar novo Restaurante')
+
+    fill_in 'Nome', with: 'Baz'
+
+    click_button 'Pesquisar'
+
+    within('table') do
+      expect(page).to have_xpath(".//tr", count: 11)
+      expect(page).to_not have_content('FooBar')
+    end
+  end
+
   scenario "Create new restaurant" do
     visit root_path
 

@@ -16,6 +16,30 @@ RSpec.feature Meadow, type: :feature do
     expect(page).to have_link('Cadastrar novo Prato')
   end
 
+  scenario "Visit the index page and show only filtered" do
+    create_list(:meadow, 10)
+    create_list(:meadow, 10, name: 'Baz')
+
+    visit root_path
+
+    click_link 'Pratos'
+
+    within('table') do
+      expect(page).to have_xpath(".//tr", count: 21)
+    end
+
+    expect(page).to have_button('Pesquisar')
+
+    fill_in 'Nome', with: 'Baz'
+
+    click_button 'Pesquisar'
+
+    within('table') do
+      expect(page).to have_xpath(".//tr", count: 11)
+      expect(page).to_not have_content('BarFoo')
+    end
+  end
+
   scenario "Create new meadow" do
     create(:restaurant)
 
