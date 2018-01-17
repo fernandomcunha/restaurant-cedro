@@ -70,4 +70,34 @@ RSpec.feature Restaurant, type: :feature do
     expect(page).to have_xpath(".//tr", count: 1)
     expect(page).to_not have_content('FooBar')
   end
+
+  scenario "Delete a restaurant and associated meadows" do
+    restaurant = create(:restaurant)
+    create_list(:meadow, 10, restaurant_id: restaurant.id)
+
+    visit root_path
+
+    click_link 'Pratos'
+
+    within('table') do
+      expect(page).to have_xpath(".//tr", count: 11)
+    end
+
+    click_link 'Restaurantes'
+
+    within('table') do
+      page.click_link('', href: "/restaurants/#{restaurant.id}")
+    end
+
+    page.refresh
+
+    expect(page).to have_xpath(".//tr", count: 1)
+    expect(page).to_not have_content('FooBar')
+
+    click_link 'Pratos'
+
+    within('table') do
+      expect(page).to_not have_xpath(".//tr", count: 11)
+    end
+  end
 end

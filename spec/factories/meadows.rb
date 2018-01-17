@@ -1,7 +1,8 @@
 FactoryBot.define do
   factory :meadow do
-    restaurant nil
-    name "MyString"
-    price "9.99"
+    association :restaurant, factory: :restaurant
+
+    name 'BarFoo'
+    price '9.99'
   end
 end

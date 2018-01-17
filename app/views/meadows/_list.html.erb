@@ -1,0 +1,19 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th class="col-md-2">Ações</th>
+      <th><%= Meadow.human_attribute_name(:name) %></th>
+      <th><%= Meadow.human_attribute_name(:price) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% collection.each do |resource| %>
+      <tr>
+        <th><%= link_to(content_tag(:span, '', class: 'glyphicon glyphicon-minus'), resource_path(resource), method: :delete) %>
+        <%= link_to(content_tag(:span, '', class: 'glyphicon glyphicon-pencil'), edit_resource_path(resource)) %></th>
+        <td class="text-left"><%= resource.name %></td>
+        <td class="text-left"><%= resource.price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

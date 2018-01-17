@@ -5,6 +5,13 @@ pt-BR:
         one: 'Prato'
         other: 'Pratos'
     attributes:
-      name: 'Nome'
-      price: 'Preço'
-      restaurant: 'Restaurante'
+      meadow:
+        name: 'Nome'
+        price: 'Preço'
+        restaurant: 'Restaurante'
+  ransack:
+    models:
+      meadow: 'Prato'
+    attributes:
+      meadow:
+        name_cont: 'Nome:'

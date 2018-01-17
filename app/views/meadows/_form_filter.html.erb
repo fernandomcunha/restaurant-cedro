@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-xs-1">
+    <%= f.label :name_cont, class: "text-left" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-10">
+    <%= f.search_field :name_cont, class: "form-control" %>
+  </div>
+</div>
+</br>
+<div class="row">
+  <div class="col-xs-2">
+    <%= f.submit 'Pesquisar', class: 'btn btn-primary' %>
+  </div>
+  <div class="col-xs-2">
+    <%= link_to "Cadastrar novo #{resource_class.model_name.human}", new_resource_path, class: 'btn btn-primary' %>
+  </div>
+</div>
