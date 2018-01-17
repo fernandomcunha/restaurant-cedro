@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: restaurant-cedro_production
-  username: restaurant-cedro
-  password: <%= ENV['RESTAURANT-CEDRO_DATABASE_PASSWORD'] %>
+  url: ENV['DATABASE_URL']
